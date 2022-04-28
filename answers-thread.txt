@@ -1,0 +1,1 @@
+If multiple threads call insert() on the same position of the table, some entries will be overwritten by other threads, and the information is permanently lost.
