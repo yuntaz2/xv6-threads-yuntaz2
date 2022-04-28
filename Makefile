@@ -230,6 +230,12 @@ ph: notxv6/ph.c
 
 barrier: notxv6/barrier.c
 	gcc -o barrier -g -O2 $(XCFLAGS) notxv6/barrier.c -pthread
+
+array: notxv6/array.c
+	gcc -o array -g -O2 $(XCFLAGS) notxv6/array.c -pthread
+
+pfib: notxv6/pfib.c
+	gcc -o pfib -g -O2 $(XCFLAGS) notxv6/pfib.c -pthread
 endif
 
 ifeq ($(LAB),pgtbl)
@@ -273,7 +279,7 @@ clean:
 	mkfs/mkfs .gdbinit \
         $U/usys.S \
 	$(UPROGS) \
-	ph barrier
+	ph barrier array pfib
 
 # try to generate a unique GDB port
 GDBPORT = $(shell expr `id -u` % 5000 + 25000)
